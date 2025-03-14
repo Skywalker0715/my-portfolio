@@ -21,7 +21,7 @@ function App() {
               <main className="container mx-auto px-6 py-8 flex-grow">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
                   {/* About Me */}
-                  <section id="about" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/about'}>
+                  <section id="about" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/about'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faUser} className="h-12 w-12 text-blue-400" />
                     </div>
@@ -30,7 +30,7 @@ function App() {
                   </section>
 
                   {/* Projects */}
-                  <section id="projects" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/projects'}>
+                  <section id="projects" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/projects'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faProjectDiagram} className="h-12 w-12 text-blue-400" />
                     </div>
@@ -39,7 +39,7 @@ function App() {
                   </section>
 
                   {/* Contact */}
-                  <section id="contact" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/contact'}>
+                  <section id="contact" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/contact'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faEnvelope} className="h-12 w-12 text-blue-400" />
                     </div>
