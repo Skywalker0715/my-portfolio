@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faProjectDiagram, faEnvelope, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import Header from './components/Header';
@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/my-portfolio">
+    <HashRouter>
       <div className="App bg-gradient-to-b from-black to-gray-900 text-white min-h-screen flex flex-col">
         <Header />
         <Routes>
@@ -21,7 +21,7 @@ function App() {
               <main className="container mx-auto px-6 py-8 flex-grow">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mx-auto">
                   {/* About Me */}
-                  <section id="about" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/about'}>
+                  <section id="about" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '#/about'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faUser} className="h-12 w-12 text-blue-400" />
                     </div>
@@ -30,7 +30,7 @@ function App() {
                   </section>
 
                   {/* Projects */}
-                  <section id="projects" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/projects'}>
+                  <section id="projects" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '#/projects'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faProjectDiagram} className="h-12 w-12 text-blue-400" />
                     </div>
@@ -39,7 +39,7 @@ function App() {
                   </section>
 
                   {/* Contact */}
-                  <section id="contact" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '/my-portfolio/contact'}>
+                  <section id="contact" className="bg-gray-800 p-6 rounded-2xl shadow-lg text-center hover:scale-105 transition-transform duration-300 cursor-pointer" onClick={() => window.location.href = '#/contact'}>
                     <div className="flex justify-center mb-4">
                       <FontAwesomeIcon icon={faEnvelope} className="h-12 w-12 text-blue-400" />
                     </div>
@@ -56,7 +56,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
