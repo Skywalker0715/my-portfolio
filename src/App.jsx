@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-portfolio">
       <div className="App bg-gradient-to-b from-black to-gray-900 text-white min-h-screen flex flex-col">
         <Header />
         <Routes>
