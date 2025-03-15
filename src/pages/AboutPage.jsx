@@ -16,7 +16,8 @@ const AboutPage = () => {
         >
           <div className="relative w-40 h-40 md:w-48 md:h-48">
             <motion.img 
-              src="/P1.JPG" 
+              src="P1.JPG" 
+
               alt="Profile" 
               className="w-full h-full rounded-full object-cover border-4 border-blue-500"
               whileHover={{ scale: 1.05 }}
