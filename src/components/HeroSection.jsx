@@ -18,7 +18,7 @@ const HeroSection = () => {
             className="mb-6 md:mb-0"
           >
             <img 
-              src="/my-portfolio/profile.JPG" 
+              src="/profile.JPG" 
 
               alt="Profile Picture"
               className="w-40 h-40 rounded-full border-4 border-blue-500 object-cover shadow-lg transition-all duration-300 hover:scale-105"
@@ -78,7 +78,7 @@ const HeroSection = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              src="/my-portfolio/971.jpg" 
+              src="/971.jpg" 
 
               alt="971"
               className="w-72 h-44 rounded-lg shadow-xl hover:rotate-2"
