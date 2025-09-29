@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 
+// komentar untuk testing
 const HeroSection = () => {
   return (
     <>
