@@ -7,13 +7,13 @@ const projects = [
     title: "Web Development",
     description: "Membangun website interaktif dengan teknologi modern.",
     icon: <FaCode className="text-blue-400 text-5xl" />,
-    link: "https://github.com/Skywalker0715/imsignature"
+    link: "https://github.com/Skywalker0715"
   },
   {
     title: "Mobile App",
     description: "Membuat aplikasi mobile yang responsif dan user-friendly.",
     icon: <FaMobileAlt className="text-green-400 text-5xl" />,
-    link: "https://github.com/Skywalker0715/AplikasiLoginSederhana"
+    link: "https://github.com/Skywalker0715/PBM-Aplikasi"
   },
   {
     title: "Certificates",

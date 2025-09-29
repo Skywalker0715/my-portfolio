@@ -27,12 +27,6 @@ const ContactPage = () => {
         <a href="https://www.linkedin.com/in/rendy-saputra-581044271/" className="flex items-center text-blue-500 hover:text-white transition">
           <FaLinkedin className="mr-2" /> LinkedIn
         </a>
-        <a href="https://www.instagram.com/rendyysaputra25/" className="flex items-center text-pink-500 hover:text-white transition">
-          <FaInstagram className="mr-2" /> Instagram
-        </a>
-        <a href="https://x.com/Rendyy1507sapu1?t=dLKUiotha6RVllSGDoB3xw&s=08" className="flex items-center text-gray-300 hover:text-white transition">
-          <FaXTwitter className="mr-2" /> Twitter
-        </a>
         <a href="https://wa.me/6287881235535" className="flex items-center text-green-500 hover:text-white transition">
           <FaWhatsapp className="mr-2" /> WhatsApp
         </a>

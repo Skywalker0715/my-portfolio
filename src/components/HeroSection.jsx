@@ -18,7 +18,7 @@ const HeroSection = () => {
             className="mb-6 md:mb-0"
           >
             <img 
-              src="profile.JPG" 
+              src="Foto_Formal.jpg" 
 
               alt="Profile Picture"
               className="w-40 h-40 rounded-full border-4 border-blue-500 object-cover shadow-lg transition-all duration-300 hover:scale-105"
@@ -35,7 +35,7 @@ const HeroSection = () => {
             <h1 className="text-3xl font-bold text-white">
               Hi, I'm <span className="text-white-400">Rendy Saputra</span>
             </h1>
-            <p className="text-lg text-gray-300">Junior Web Developer</p>
+            <p className="text-lg text-gray-300">Software Developer</p>
             <div className="text-xl text-gray-300">
               <TypeAnimation
                 sequence={[
@@ -43,8 +43,14 @@ const HeroSection = () => {
                   1200,
                   'Software Engineer',
                   1200,
-                  'Laravel Developer',
-                  1200
+                  'Fullstack Developer',
+                  1200,
+                  'Data Analyst',
+                  1200,
+                  'Machine Learning Enthusiast',
+                  1200,
+                  'Data Scientist',
+                  1200,
                 ]}
                 wrapper="span"
                 speed={50}

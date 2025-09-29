@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaravel, FaNodeJs, FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava, FaPython, FaPhp, FaDatabase, FaWordpress, FaFileExcel, FaFilePowerpoint } from "react-icons/fa";
+import { FaLaravel, FaNodeJs, FaReact, FaHtml5, FaCss3Alt, FaJs, FaJava, FaPython, FaPhp, FaDatabase, FaWordpress, FaFileExcel, FaFilePowerpoint, FaRobot, FaCogs, FaChartBar } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white p-4 flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-b from-black to-gray-900 text-white p-4 pt-20 flex flex-col items-center justify-start">
       <div className="relative max-w-4xl mx-auto mb-16 flex flex-col md:flex-row items-center md:items-start">
         {/* Profile Picture */}
         <motion.div 
@@ -16,7 +16,7 @@ const AboutPage = () => {
         >
           <div className="relative w-40 h-40 md:w-48 md:h-48">
             <motion.img 
-              src="P1.JPG" 
+              src="Foto_Formal.jpg" 
               alt="Profile" 
               className="w-full h-full rounded-full object-cover border-4 border-blue-500"
               whileHover={{ scale: 1.05 }}
@@ -35,8 +35,14 @@ const AboutPage = () => {
           <h3 className="text-xl font-semibold mb-4 text-center md:text-left">Tentang Saya</h3>
           <div className="space-y-3 text-center md:text-left">
             <p className="text-gray-300 text-sm">
-              Saya adalah pengembang web dan mobile berpengalaman yang fokus pada teknologi modern. Dengan keahlian dalam Laravel dan Node.js untuk pengembangan web, serta Java untuk aplikasi mobile, 
-              saya menciptakan solusi digital yang tidak hanya berfungsi dengan baik tetapi juga menarik secara visual.
+            Lulusan Informatika dari Universitas Katolik Musi Charitas dengan IPK 3.65 (masa studi 3,7 tahun). 
+            Memiliki pengalaman dalam pengembangan aplikasi, perancangan sistem, dan optimasi proses bisnis. 
+            Berkontribusi pada proyek digitalisasi di PT Thamrin Group melalui implementasi sistem paperless yang meningkatkan
+            efisiensi administrasi. Terampil dalam pengelolaan database SQL/NoSQL, pengembangan model machine learning untuk 
+            klasifikasi sentimen, serta penyusunan dokumentasi teknis. Menggunakan pendekatan analitis untuk memahami kebutuhan 
+            pengguna dan mengembangkan solusi teknologi yang efektif. Bersemangat untuk terus belajar, adaptif dengan 
+            perkembangan teknologi, dan terbuka terhadap peluang di bidang software development, data-driven solutions, 
+            dan artificial intelligence.
             </p>
             <p className="text-gray-300 text-sm">
               Saya memiliki passion dalam menciptakan antarmuka pengguna yang menarik, inovatif, dan interaktif dengan animasi yang dinamis.
@@ -68,6 +74,9 @@ const AboutPage = () => {
           <FaPhp className="text-purple-600 hover:scale-110 transition-transform" />
           <FaDatabase className="text-gray-400 hover:scale-110 transition-transform" />
           <SiFirebase className="text-yellow-500 hover:scale-110 transition-transform" />
+          <FaRobot className="text-purple-500 hover:scale-110 transition-transform" />
+          <FaCogs className="text-indigo-500 hover:scale-110 transition-transform" />
+          <FaChartBar className="text-green-500 hover:scale-110 transition-transform" />
         </div>
       </motion.div>
     </div>
