@@ -31,16 +31,6 @@ const Footer = () => {
             >
               <FaLinkedin className="w-6 h-6" />
             </a>
-            <a 
-              href="https://www.instagram.com/rendyysaputra25/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-blue-400 transition-colors duration-300"
-              aria-label="Instagram"
-            >
-              <FaInstagram className="w-6 h-6" />
-            </a>
-
           </div>
         </div>
       </div>
