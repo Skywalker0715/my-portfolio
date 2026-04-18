@@ -67,11 +67,11 @@ const CategoryDetail = ({ category, items, onBack }) => {
         Kembali ke kategori
       </button>
 
-      <div className="flex items-center gap-4 mb-6">
-        <div className="bg-white/10 p-3 rounded-2xl backdrop-blur-md">{category.icon}</div>
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-5 mb-10 text-center md:text-left">
+        <div className="bg-white/10 p-4 rounded-2xl backdrop-blur-md mb-3 md:mb-0 shadow-lg border border-white/5">{category.icon}</div>
         <div>
-          <h2 className="text-3xl md:text-4xl font-semibold">{category.title}</h2>
-          <p className="text-gray-300">{category.subtitle}</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">{category.title}</h2>
+          <p className="text-gray-400 text-sm md:text-base max-w-md md:max-w-2xl mx-auto md:mx-0 leading-relaxed">{category.subtitle}</p>
         </div>
       </div>
 
@@ -231,25 +231,24 @@ const CategoryDetail = ({ category, items, onBack }) => {
       </div>
 
       {gallery && (
-        <div className="fixed inset-0 z-[80] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-6">
+        <div className="fixed inset-0 z-[80] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-6 overflow-y-auto">
           <div className="relative w-full max-w-5xl bg-slate-950 border border-white/10 rounded-3xl shadow-2xl overflow-hidden">
             <button
               type="button"
               onClick={closeGallery}
-              className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/70 text-white hover:bg-black border border-white/15"
+              className="fixed top-6 right-6 z-[100] w-12 h-12 rounded-full bg-black/80 backdrop-blur-sm text-white hover:bg-black border-2 border-white/20 shadow-2xl flex items-center justify-center text-xl font-bold transition-all duration-200 hover:scale-110 active:scale-95 mx-4"
               aria-label="Close gallery"
             >
-
-              x
+              ×
             </button>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.9fr]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_0.9fr] ml-0 lg:ml-0">
               <div className="bg-black">
                 {currentImage ? (
                   <img
                     src={currentImage}
                     alt={`${gallery.project.title} screenshot ${gallery.index + 1}`}
-                    className="w-full h-[55vh] lg:h-[70vh] object-contain bg-black"
+                    className="w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] max-h-[75vh] object-contain mx-auto bg-black p-4"
                   />
                 ) : (
                   <div className="w-full h-[55vh] lg:h-[70vh] bg-gradient-to-br from-slate-900 via-black to-slate-950 flex flex-col items-center justify-center text-center px-6">

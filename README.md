@@ -1,8 +1,26 @@
-# React + Vite
+# 🚀 Portofolio Pribadi 2026 - Rendy Saputra
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Selamat datang di repositori portofolio saya! Website ini adalah etalase digital yang merangkum perjalanan, proyek, dan keahlian saya di bidang **Software Engineering**, **AI/ML**, dan **Data Science**. 
 
-Currently, two official plugins are available:
+Dibuat dengan fokus pada performa tinggi, desain premium, dan responsivitas total di semua perangkat.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack Utama
+
+- **Frontend:** React.js + Vite (Cepat & Modern)
+- **Styling:** Tailwind CSS (Desain Presisi)
+- **Animasi:** Framer Motion (Interaksi Halus)
+- **Deployment:** Vercel
+
+## ✨ Fitur Unggulan
+
+- **Showcase Proyek Dinamis:** Pemisahan proyek berdasarkan bidang (Software, AI, Data) dengan filter otomatis.
+- **Optimasi Mobile:** Tampilan yang sudah dipoles khusus untuk pengguna smartphone.
+- **Dokumentasi Lengkap:** Setiap proyek dilengkapi dengan screenshot, deskripsi teknis, dan tautan demo/repo.
+- **Routing Aman:** Konfigurasi khusus untuk menangani Error 404 pada Single Page Application di production.
+
+## 📂 Struktur Folder
+
+- `src/components`: Komponen UI yang dapat digunakan kembali.
+- `src/pages`: Halaman utama (About, Projects, Contact).
+- `src/data`: Pusat data proyek dan skill untuk kemudahan update.
+

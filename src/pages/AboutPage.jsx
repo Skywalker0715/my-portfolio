@@ -5,6 +5,13 @@ import {
   SiAxios,
   SiBootstrap,
   SiDjango,
+  SiGooglesheets,
+  SiLooker,
+  SiGoogleanalytics,
+  SiAndroidstudio,
+  SiNextdotjs,
+  SiFlutter,
+  SiDart,
   SiExpress,
   SiFirebase,
   SiFigma,
@@ -219,6 +226,9 @@ const skillGroups = [
     items: [
       { label: "Python", icon: <SiPython className="text-blue-300" /> },
       { label: "JavaScript", icon: <SiJavascript className="text-yellow-300" /> },
+      { label: "Next.js", icon: <SiNextdotjs className="text-white" /> },
+      { label: "Flutter", icon: <SiFlutter className="text-sky-400" /> },
+      { label: "Dart", icon: <SiDart className="text-blue-400" /> },
       { label: "Java", icon: <FaJava className="text-red-300" /> },
       { label: "PHP", icon: <FaPhp className="text-indigo-300" /> },
       { label: "Laravel", icon: <SiLaravel className="text-red-400" /> },
@@ -272,7 +282,13 @@ const skillGroups = [
       { label: "Vercel", icon: <FaTools className="text-gray-200" /> },
       { label: "Supabase", icon: <SiSupabase className="text-emerald-300" /> },
       { label: "Neon Serverless Postgres", icon: <FaDatabase className="text-cyan-300" /> },
-      { label: "Axios", icon: <SiAxios className="text-purple-300" /> }
+      { label: "Axios", icon: <SiAxios className="text-purple-300" /> },
+      { label: "Google Sheets", icon: <SiGooglesheets className="text-green-500" /> },
+      { label: "Google Looker Studio", icon: <SiLooker className="text-blue-500" /> },
+      { label: "Firebase", icon: <SiFirebase className="text-amber-500" /> },
+      { label: "Google Analytics", icon: <SiGoogleanalytics className="text-orange-500" /> },
+      { label: "Android Studio", icon: <SiAndroidstudio className="text-green-400" /> },
+      { label: "Google Antigravity", icon: <FaTools className="text-blue-400" /> }
     ]
   },
   {
@@ -495,14 +511,14 @@ const AboutPage = () => {
                   <h3 className="text-lg font-semibold">{group.title}</h3>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-xs text-blue-200 md:grid-cols-3">
+                <div className="flex flex-wrap gap-2 text-xs sm:text-sm text-blue-200">
                   {group.items.map((item) => (
                     <span
                       key={item.label}
-                      className="inline-flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-500/10 border border-blue-400/30 leading-tight break-words min-h-[40px]"
+                      className="flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-blue-500/10 border border-blue-400/30 w-fit min-w-0 whitespace-nowrap"
                     >
                       <span className="text-base">{item.icon}</span>
-                      <span className="block">{item.label}</span>
+                      <span>{item.label}</span>
                     </span>
                   ))}
                 </div>
