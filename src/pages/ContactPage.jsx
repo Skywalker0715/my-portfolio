@@ -30,7 +30,7 @@ const ContactPage = () => {
         <a href="https://wa.me/6287881235535" className="flex items-center text-green-500 hover:text-white transition">
           <FaWhatsapp className="mr-2" /> WhatsApp
         </a>
-        <a href="mailto:rendydovisioso@gmail.com" className="flex items-center text-red-500 hover:text-white transition">
+        <a href="mailto:15rendysaputra@gmail.com" className="flex items-center text-red-500 hover:text-white transition">
           <FaEnvelope className="mr-2" /> Email
         </a>
       </motion.div>
