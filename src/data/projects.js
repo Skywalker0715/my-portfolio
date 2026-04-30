@@ -134,11 +134,11 @@ export const PROJECTS = {
     },
     {
       title: "Aplikasi Sistem Manajemen dan Pembelian Barang Pratama Motor",
-      period: "Des 2025 - Ongoing",
+      period: "Des 2025 - Apr 2026",
       description:
         "Sistem manajemen dan pembelian barang yang masih dalam tahap pengembangan untuk membantu proses operasional Pratama Motor agar lebih rapi, terstruktur, dan mudah diperluas.",
       format: "Web",
-      status: "Ongoing",
+      status: "Finished",
       stack: ["Laravel", "MySQL", "Bootstrap", "Tailwind CSS", "PHP"],
       tech: ["System Design", "Inventory Management", "Web App", "Ongoing"],
       images: [resolveAsset("dokumentasi/f1.png")]
