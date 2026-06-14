@@ -6,6 +6,7 @@ import {
   SiBootstrap,
   SiDjango,
   SiGooglesheets,
+  SiGooglecloud,
   SiLooker,
   SiGoogleanalytics,
   SiAndroidstudio,
@@ -33,9 +34,11 @@ import {
   SiScikitlearn,
   SiSpring,
   SiSupabase,
+  SiWordpress,
   SiTailwindcss,
   SiVuedotjs
 } from "react-icons/si";
+import { LuBolt } from "react-icons/lu";
 import { FaJava, FaPhp } from "react-icons/fa";
 import m1 from "../assets/dokumentasi/m1.jpeg";
 import m2 from "../assets/dokumentasi/m2.jpeg";
@@ -60,6 +63,31 @@ import bnsp from "../assets/dokumentasi/bnsp.jpg";
 import reactCert from "../assets/dokumentasi/react.png";
 import toefl from "../assets/dokumentasi/toefl.jpg";
 import revou from "../assets/dokumentasi/revou.jpg";
+import poster from "../assets/gambar_project/ngalir/poster.jpg";
+import dashboard from "../assets/gambar_project/ngalir/dashboard.png";
+import sertifDgm from "../assets/dokumentasi/digital_marketing/Sertif_dgm.jpg";
+import suratRekomendasiDgm from "../assets/dokumentasi/digital_marketing/srkdb.jpg";
+
+const digitalMarketingImagesByName = import.meta.glob(
+  "../assets/dokumentasi/digital_marketing/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
+  {
+    eager: true,
+    import: "default"
+  }
+);
+
+const digitalMarketingImages = [
+  "Dk1.png",
+  "Dk2.jpeg",
+  "R1.jpg",
+  "R2.jpg",
+  "T1.jpg"
+]
+  .map((fileName) =>
+    Object.entries(digitalMarketingImagesByName).find(([path]) => path.endsWith(`/${fileName}`))?.[1]
+  )
+  .filter(Boolean);
+
 
 const highlights = [
   {
@@ -141,22 +169,66 @@ const activities = [
     ]
   },
   {
-    title: "Freelance Project",
-    period: "Des 2025 - Ongoing",
+    title: "Freelance Project Phase 1",
+    period: "Des 2025 - April 2026",
     role: "Web Application Developer",
     images: [freelance],
     description:
-      "Mengerjakan aplikasi sistem manajemen dan pembelian barang untuk Pratama Motor yang masih dalam tahap pengembangan.",
-    impact: ["Ongoing", "System Design", "Web App"],
+      "Membangun aplikasi Sistem Informasi Penjualan dan Manajemen Stok Barang untuk Pratama Motor guna mendigitalisasi dan merapikan proses operasional toko.",
+    impact: ["Finished", "System Design", "Web App"],
     details: [
-      "Fokus pada sistem manajemen dan pembelian barang.",
-      "Proyek masih berjalan dan terus dikembangkan.",
-      "Menjaga struktur sistem agar mudah diperluas."
+     "Membangun sistem autentikasi dengan hak akses berbasis role Admin dan Kasir.",
+    "Mengembangkan manajemen produk, stok barang, dan transaksi penjualan dengan pengurangan stok otomatis.",
+    "Membuat fitur retur barang dan histori harga produk.",
+    "Mengembangkan laporan penjualan & keuangan dengan fitur export PDF dan Excel.",
+    "Proyek selesai dan dilanjutkan ke kontrak baru (Phase 2) dengan fitur yang lebih kompleks."
     ]
-  }
+  },
+  {
+  title: "AI/ML & Full Stack Developer – GDG Live Indonesia Hackathon",
+  period: "Mei 2026",
+  role: "AI/ML & Full Stack Developer",
+  images: [poster, dashboard],
+  description:
+    "Mengembangkan aplikasi kasir cerdas berbasis AI bernama NGALIR untuk membantu UMKM Indonesia mengoptimalkan operasional bisnis mereka dalam ajang GDG Live Indonesia.",
+  impact: ["AI Integration", "Machine Learning", "Full Stack Development", "Finished","Hackathon"],
+  details: [
+    "Mengintegrasikan Google AI Studio & Gemini API untuk fitur Voice AI Chat dan Proactive AI yang memberikan insight bisnis secara otomatis.",
+    "Membangun arsitektur database inventory real-time menggunakan Firebase.",
+    "Mengembangkan sistem kasir digital dengan kalkulasi otomatis.",
+    "Membuat fitur ekspor laporan bisnis langsung ke format PDF."
+  ]
+},
+  {
+  title: "Digital Marketing Bootcamp",
+  period: "Mei 2026",
+  role: "Digital Marketing Specialist",
+  images: digitalMarketingImages,
+  description:
+    "Mengikuti 2 weeks intensive bootcamp Digital Marketing bersama KarirNex × Ebizmark, mempelajari dan mempraktikkan strategi digital marketing secara menyeluruh sebagai langkah transisi dari background programmer menuju dunia digital marketing.",
+  impact: ["Digital Marketing", "SEO", "Content Strategy", "KOL Management"],
+  details: [
+    "Mempelajari riset customer persona dan value proposition untuk strategi pemasaran yang tepat sasaran.",
+    "Mengembangkan strategi konten dan manajemen KOL (Key Opinion Leader) untuk meningkatkan brand awareness.",
+    "Memahami dan mempraktikkan SEO serta optimasi landing page untuk meningkatkan visibilitas online.",
+    "Bootcamp ini menjadi langkah awal transisi karir dari background programmer menuju dunia digital marketing."
+  ]
+}
 ];
 
 const certificates = [
+  {
+    title: "2 Weeks Intensive Bootcamp Digital Marketing Batch 3",
+    issuer: "KarirNex by PT Ebiz Karisma Internasional",
+    date: "Mei 2026",
+    image: sertifDgm
+  },
+  {
+    title: "Surat Rekomendasi Keahlian Digital Marketing",
+    issuer: "KarirNex by PT Ebiz Karisma Internasional",
+    date: "Mei 2026",
+    image: suratRekomendasiDgm
+  },
   {
     title: "AI Productivity and AI API Integration for Developers",
     issuer: "Hacktiv8 Indonesia",
@@ -288,7 +360,15 @@ const skillGroups = [
       { label: "Firebase", icon: <SiFirebase className="text-amber-500" /> },
       { label: "Google Analytics", icon: <SiGoogleanalytics className="text-orange-500" /> },
       { label: "Android Studio", icon: <SiAndroidstudio className="text-green-400" /> },
-      { label: "Google Antigravity", icon: <FaTools className="text-blue-400" /> }
+      { label: "Google Antigravity", icon: <FaTools className="text-blue-400" /> },
+      { label: "n8n", icon: <FaTools className="text-orange-400" /> },
+      { label: "OpenClaw", icon: <FaTools className="text-slate-300" /> },
+      { label: "Lovable", icon: <FaTools className="text-pink-300" /> },
+      { label: "Bolt", icon: <LuBolt className="text-yellow-300" /> },
+      { label: "Emergent", icon: <FaTools className="text-cyan-300" /> },
+      { label: "Google Cloud", icon: <SiGooglecloud className="text-blue-400" /> },
+      { label: "Google AI", icon: <FaTools className="text-emerald-300" /> },
+      { label: "WordPress", icon: <SiWordpress className="text-blue-300" /> }
     ]
   },
   {

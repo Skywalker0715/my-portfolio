@@ -133,14 +133,14 @@ export const PROJECTS = {
       github: "https://github.com/Skywalker0715/hiring-platform-api.git"
     },
     {
-      title: "Aplikasi Sistem Manajemen dan Pembelian Barang Pratama Motor",
+      title: "Aplikasi Sistem Informasi Penjualan dan Manajemen Stok Barang Pratama Motor",
       period: "Des 2025 - Apr 2026",
       description:
-        "Sistem manajemen dan pembelian barang yang masih dalam tahap pengembangan untuk membantu proses operasional Pratama Motor agar lebih rapi, terstruktur, dan mudah diperluas.",
+        "Membangun aplikasi web untuk membantu digitalisasi operasional toko Pratama Motor, mencakup manajemen produk & stok, transaksi penjualan dengan pengurangan stok otomatis, retur barang, histori harga, laporan penjualan & keuangan, export PDF & Excel, serta sistem autentikasi berbasis role Admin dan kasir.",
       format: "Web",
       status: "Finished",
-      stack: ["Laravel", "MySQL", "Bootstrap", "Tailwind CSS", "PHP"],
-      tech: ["System Design", "Inventory Management", "Web App", "Ongoing"],
+      stack: ["Laravel 12", "Livewire", "MySQL", "Bootstrap", "Tailwind CSS", "PHP"],
+      tech: ["System Design", "Inventory Management", "Web App", "Role Based Access"],
       images: [resolveAsset("dokumentasi/f1.png")]
     },
     {
@@ -191,7 +191,19 @@ export const PROJECTS = {
       images: projectImages("ai/warehouses", ["login.png", "w1.png", "w2.png", "w3.png", "w4.png"]),
       youtube: "https://youtu.be/LeEA4ohZeUY?si=AWRauR3u0udDR4RAD",
       demo: "https://warehouses-ai.vercel.app/"
-    }
+    },
+    {
+    title: "NGALIR – Aplikasi Kasir Cerdas Berbasis AI untuk UMKM",
+    period: "Mei 2026",
+    description:
+    "NGALIR adalah aplikasi kasir cerdas berbasis AI yang dikembangkan dalam ajang GDG Live Indonesia Hackathon, dirancang khusus untuk membantu UMKM Indonesia mengoptimalkan operasional bisnis mereka. Aplikasi ini mengintegrasikan Voice AI Chat dan Proactive AI menggunakan Google Gemini API untuk memberikan insight bisnis secara otomatis, dilengkapi dengan manajemen inventory real-time, sistem kasir digital dengan kalkulasi otomatis, serta fitur ekspor laporan bisnis ke format PDF.",
+    format: "Web",
+    status: "Finished",
+    stack: ["Firebase", "Gemini API", "Google AI Studio", "Google Cloud"],
+    tech: ["AI Integration", "Hackathon", "UMKM Solutions", "Web App"],
+    images: projectImages("ngalir", ["dashboard.png", "iventory.png", "kasir.png","laporan.png","chat.png"]),
+    demo: "https://ngalir-160878882468.asia-southeast1.run.app/"
+}
   ],
   data: [
     {
@@ -237,7 +249,40 @@ export const PROJECTS = {
       stack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter Notebook"],
       tech: ["EDA", "Data Cleaning", "Visualization", "Research"],
       images: projectImages("data_analys/himalaya", ["h1.jpg", "h2.jpg", "h3.jpg", "h4.jpg", "h5.jpg", "h6.jpg", "h7.jpg", "h8.jpg", "h9.jpg"])
-    }
+    },
+    {
+      title: "E-Commerce Book Data Scraping & Cleaning",
+      period: "Juni 2026",
+      description:
+      "Membangun pipeline scraping otomatis menggunakan Python untuk mengekstrak 1.000+ data produk buku dari marketplace e-commerce publik, mencakup nama produk, harga, rating, dan status stok dari 50 halaman kategori. Data mentah kemudian dibersihkan menggunakan Pandas — menangani 6 masalah kualitas data termasuk simbol mata uang, inkonsistensi teks, dan tipe data campuran. Hasil akhir berupa file Excel dengan 2 sheet: dataset bersih lengkap dan dashboard analitik ringkasan per kategori rating, dengan akurasi data 99.8% dan waktu proses di bawah 4 menit — menggantikan 3+ jam kerja manual.",
+      format: "Analytics",
+      status: "Finished",
+      stack: ["Python", "BeautifulSoup", "Requests", "Pandas", "openpyxl", "Google Colab", "Excel"],
+      tech: ["Web Scraping", "Data Entry", "Data Cleaning", "Data Analysis", "Automation"],
+      images: projectImages("data_analys/book_scraping", ["b1.png", "b2.png", "b3.png"])
+    },
+    {
+     title: "PDF Directory to Spreadsheet – Lead Data Entry",
+     period: "Mei 2026",
+     description:
+     "Mengekstrak 200+ data kontak profesional dari direktori PDF 26 halaman milik Estate Planning Council of Cleveland yang mencakup Accountant, Attorney, CPA, dan Financial Advisor. Setiap kontak diekstrak secara manual dengan 11 field data per baris: Name, Title, Company, Address, City, State, ZIP, Phone, Fax, Email, dan Website. Data dimasukkan ke Google Sheets dengan standarisasi format nomor telepon, perbaikan inkonsistensi alamat, dan verifikasi akurasi email. Hasil akhir berupa database bersih dan terstruktur yang siap digunakan untuk CRM import, mail merge, maupun kampanye outreach.",
+     format: "Analytics",
+     status: "Finished",
+     stack: ["Google Sheets", "PDF Viewer", "Excel"],
+     tech: ["Data Entry", "Data Cleaning", "Data Validation", "Quality Assurance"],
+     images: projectImages("data_analys/pdf_entry", ["p1.png", "p2.png", "p3.png", "p4.png"])
+  },
+  {
+     title: "PDF Report to Spreadsheet – School Network Data",
+     period: "Mei 2026",
+    description:
+    "Mengekstrak data jaringan sekolah dari laporan PDF multi-halaman milik SIATech Inc. yang mencakup beberapa negara bagian AS seperti California, Arkansas, dan Florida. Seluruh data diketik manual ke Google Sheets dan diorganisir dalam 3 kolom terstruktur: State, School Name, dan Program/Type/Location. Hasil akhir berupa 5 sheet terstruktur: Master Data, Data Input, Pivot Table, Visualisasi, dan Methodology — siap digunakan untuk analisis dan pelaporan langsung.",
+    format: "Analytics",
+    status: "Finished",
+    stack: ["Google Sheets", "PDF Viewer", "Excel"],
+    tech: ["Data Entry", "Data Cleaning", "Data Validation", "Quality Assurance"],
+    images: projectImages("data_analys/school_network", ["s1.png", "s2.png"])
+}
   ],
   uiux: [
     {
@@ -284,7 +329,43 @@ export const PROJECTS = {
       tech: ["Web Design", "Landing Page", "Premium Brand"],
       images: projectImages("web_design/car", ["index.png"]),
       demo: "https://enlivened-run-081984.framer.app/"
-    }
+    },
+    {
+     title: "TeaZen – Organic Tea E-Commerce Web Design",
+     period: "April 2026",
+     description:
+     "Perancangan website e-commerce untuk brand teh organik premium bernama TeaZen dengan tampilan yang bersih, natural, dan elegan. Desain mencakup landing page hero section, navigasi multi-halaman (Home, Shop, About, Contact), dan UI yang mencerminkan identitas brand wellness dan mindfulness. Dikerjakan menggunakan Figma untuk desain awal dan Lovable untuk implementasi.",
+     format: "Web",
+     status: "Finished",
+     stack: ["Figma", "Lovable"],
+     tech: ["Web Design", "UI/UX", "Landing Page", "E-Commerce Design"],
+     images: projectImages("web_design/teazen", ["t1.png", "t2.png"]),
+     demo: "https://serene-sip-page.lovable.app"
+     },
+     {
+     title: "CineWorld – Movie Streaming Landing Page",
+     period: "Mei 2026",
+     description:
+    "Perancangan landing page platform streaming film bernama CineWorld dengan tampilan dark mode elegan menyerupai Netflix. Dimulai dari desain awal di Figma kemudian diimplementasikan menggunakan Bolt.new sebagai AI builder. Mencakup hero section featured movie, navigasi multi-section (Home, Movies, Series, My List), rating match system, dan UI yang immersive dengan nuansa bioskop.",
+     format: "Web",
+     status: "Finished",
+     stack: ["Bolt.new", "Figma"],
+     tech: ["Web Design", "AI-Generated", "Landing Page", "Streaming UI"],
+     images: projectImages("web_design/cineworld", ["index.png"]),
+     demo: "https://cineworld.bolt.host/"
+     },
+     {
+      title: "Wisata Indonesia – Travel Landing Page",
+      period: "Juni 2026",
+      description:
+      "Perancangan landing page travel agency bertema wisata Indonesia menggunakan Emergent.sh sebagai AI builder. Dimulai dari pembuatan PRD menggunakan Claude AI dan desain awal di Figma, kemudian diimplementasikan menjadi single page application dengan smooth scroll navigation mencakup section Home, Destinasi, About, Benefit, Price, dan Contact. Tampilan menampilkan keindahan alam Nusantara dengan visual hero section landscape pegunungan dan laut Indonesia.",
+      format: "Web",
+      status: "Finished",
+      stack: ["Emergent.sh", "Figma", "Claude AI"],
+      tech: ["Web Design", "AI-Generated", "Landing Page", "Single Page App"],
+      images: projectImages("web_design/wisdo", ["index.png"]),
+      demo: "https://nusantara-tours.preview.emergentagent.com/?utm_source=share"
+     }
   ]
 };
 

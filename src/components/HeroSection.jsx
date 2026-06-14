@@ -36,6 +36,8 @@ const HeroSection = () => {
                 1200,
                 "Fullstack Developer",
                 1200,
+                 "AI Engineer",
+                1200,
                 "Data Analytics",
                 1200,
                 "Machine Learning",
