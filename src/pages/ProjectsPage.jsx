@@ -2,13 +2,245 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { FaArrowLeft, FaArrowRight, FaChartLine, FaGithub, FaGlobe, FaLaptopCode, FaMobileAlt, FaPaintBrush, FaRobot, FaServer, FaYoutube } from "react-icons/fa";
 import { FILTER_CONFIG, PROJECTS, PROJECT_CATEGORIES } from "../data/projects";
+import { useLanguage } from "../context/LanguageContext";
 
-const applyFilters = (items, search, filters) => {
+const PROJECT_COPY = [
+  {
+    match: /Aplikasi Klasifikasi Sentimen terhadap Merek Smartphone di Indonesia/i,
+    en: {
+      title: "Sentiment Classification App for Smartphone Brands in Indonesia",
+      description:
+        "A web app for analyzing YouTube comments across 21 smartphone types from 5 popular brands in Indonesia. The Naive Bayes model with TF-IDF and FastText achieved 92-98% accuracy and presents the output in easy-to-read charts and tables."
+    }
+  },
+  {
+    match: /MoodSense - Aplikasi Pemantau Mood Harian/i,
+    en: {
+      title: "MoodSense - Daily Mood Monitoring App",
+      description:
+        "A daily mood tracking app that analyzes emotions with IndoBERT and provides personalized suggestions through OpenAI GPT. Mood history is stored so emotional progress can be reviewed over time."
+    }
+  },
+  {
+    match: /Aplikasi IM-Signature Project Magang Thamrin 2024/i,
+    en: {
+      title: "IM-Signature App - Thamrin Internship Project 2024",
+      description:
+        "A digital memorandum approval system that cut approval time from 3 days to 24 hours and reduced paper usage by up to 40%. Built with Laravel, MySQL, and a cleaner Agile workflow."
+    }
+  },
+  {
+    match: /Catatan Belanja - Aplikasi Pencatat Pengeluaran dari Struk/i,
+    en: {
+      title: "Shopping Notes - Receipt-based Expense Tracker",
+      description:
+        "A web app that lets users upload receipt photos, then reads the text with OCR, turns it into structured data using Cohere AI, and stores it in the database. Includes a Filament admin panel for expense management."
+    }
+  },
+  {
+    match: /Sistem Manajemen Tiket TickTrack/i,
+    en: {
+      title: "TickTrack Ticket Management System",
+      description:
+        "A ticket management web app that centralizes issue reports into one system. It includes role-based access, real-time status tracking, communication history, and a monitoring dashboard so issues do not get lost in email or chat."
+    }
+  },
+  {
+    match: /HireSpace - Platform Manajemen Perekrutan/i,
+    en: {
+      title: "HireSpace - Recruitment Management Platform",
+      description:
+        "A modern recruitment platform with two interfaces: an admin dashboard for managing vacancies and an applicant portal for browsing jobs, submitting applications, and managing profiles. Includes application tracking, interview schedules, and real-time notifications."
+    }
+  },
+  {
+    match: /Hiring API - Backend System for Recruitment Platform/i,
+    en: {
+      title: "Hiring API - Backend System for Recruitment Platform",
+      description:
+        "A modular RESTful API backend for a recruitment platform with more than 13 endpoints for job posts, applications, applicant profiles, interviews, and notifications. Includes JWT authentication, multi-role access control, and full request validation."
+    }
+  },
+  {
+    match: /Aplikasi Sistem Informasi Penjualan dan Manajemen Stok Barang Pratama Motor/i,
+    en: {
+      title: "Pratama Motor Sales & Stock Management System",
+      description:
+        "A web application that helps digitize Pratama Motor store operations, including product and stock management, sales transactions with automatic stock deduction, returns, price history, sales and finance reports, PDF and Excel export, and role-based Admin/Cashier authentication."
+    }
+  },
+  {
+    match: /Kumpulan Proyek Pemrograman Berbasis Mobile/i,
+    en: {
+      title: "Collection of Mobile-Based Programming Projects",
+      description:
+        "A collection of mobile programming projects that includes various mobile app implementations in one GitHub repository. This project serves as organized documentation of mobile development exploration and practice."
+    }
+  },
+  {
+    match: /Prediksi Kualitas Mobil dengan Model Machine Learning/i,
+    en: {
+      title: "Car Quality Prediction with a Machine Learning Model",
+      description:
+        "A K-Nearest Neighbors classification model for assessing used car feasibility based on condition, price, and vehicle age. The project achieved 81% accuracy and can be used as automatic screening on a used car marketplace."
+    }
+  },
+  {
+    match: /AI Assistant Telegram Bot/i,
+    en: {
+      title: "AI Assistant Telegram Bot",
+      description:
+        "An AI-powered Telegram bot that integrates Google Gemini through an n8n automation workflow. The bot can reply automatically, keep conversation context, and log interaction history to Google Sheets for monitoring and analysis."
+    }
+  },
+  {
+    match: /Warehouse AI - Smart Inventory Management System/i,
+    en: {
+      title: "Warehouse AI - Smart Inventory Management System",
+      description:
+        "A Gemini 2.5 Flash and RAG-based inventory system that lets users query warehouse data in natural language, predicts stockouts automatically, and monitors stock capacity in real time. Built as an efficient, scalable multi-tenant SaaS."
+    }
+  },
+  {
+    match: /NGALIR/i,
+    en: {
+      title: "NGALIR - AI-Powered Smart Cashier App for SMEs",
+      description:
+        "NGALIR is an AI-powered cashier app built for the GDG Live Indonesia Hackathon to help Indonesian SMEs optimize business operations. It integrates Voice AI Chat and Proactive AI with Google Gemini API, real-time inventory management, automatic transaction calculations, and PDF report export."
+    }
+  },
+  {
+    match: /Data Entry & Dashboard Produk Toko Online/i,
+    en: {
+      title: "Online Store Product Data Entry & Dashboard",
+      description:
+        "A data entry and visualization training project for 100 self-created online store products. The data is processed in Excel into an interactive dashboard for tracking stock, popular categories, and inventory value through Pivot Tables, Charts, and Slicers."
+    }
+  },
+  {
+    match: /E-Commerce Data Analysis Project: Customer Insights & Sales Trends/i,
+    en: {
+      title: "E-Commerce Data Analysis Project: Customer Insights & Sales Trends",
+      description:
+        "An analysis of the UK Online Retail dataset to reveal customer buying patterns and sales trends. The process includes data cleaning, exploratory data analysis, and actionable business insights."
+    }
+  },
+  {
+    match: /Project: Analisis Tren Pasar Gaya Hidup & Kesehatan 2025/i,
+    en: {
+      title: "Lifestyle and Health Market Trend Analysis 2025",
+      description:
+        "An analysis of post-pandemic lifestyle and health trends by combining Google Trends, marketplace data, and consumer surveys. The results provide insight into market interest patterns and health-sector marketing opportunities for 2025."
+    }
+  },
+  {
+    match: /Himalaya Expedition Data Analysis & Visualization/i,
+    en: {
+      title: "Himalaya Expedition Data Analysis & Visualization",
+      description:
+        "An analysis and visualization project using the 1905-2024 Himalaya expedition dataset with 11,425 expeditions and 89,000 climbers. The project highlights success trends, gender distribution, seasonal effects, and climbing risks through end-to-end cleaning and EDA."
+    }
+  },
+  {
+    match: /E-Commerce Book Data Scraping & Cleaning/i,
+    en: {
+      title: "E-Commerce Book Data Scraping & Cleaning",
+      description:
+        "An automated scraping pipeline built with Python to extract 1,000+ book product records from public e-commerce pages, including name, price, rating, and stock status from 50 category pages. The raw data was cleaned with Pandas, handling six quality issues, and exported as a two-sheet Excel file with 99.8% data accuracy."
+    }
+  },
+  {
+    match: /PDF Directory to Spreadsheet/i,
+    en: {
+      title: "PDF Directory to Spreadsheet - Lead Data Entry",
+      description:
+        "Extraction of 200+ professional contact records from a 26-page PDF directory from the Estate Planning Council of Cleveland. Each row was manually entered with 11 fields and standardized in Google Sheets for CRM import, mail merge, and outreach campaigns."
+    }
+  },
+  {
+    match: /PDF Report to Spreadsheet/i,
+    en: {
+      title: "PDF Report to Spreadsheet - School Network Data",
+      description:
+        "A manual data entry project that extracted school network data from a multi-page PDF report by SIATech Inc. The result is a structured Google Sheet dataset ready for analysis and reporting."
+    }
+  },
+  {
+    match: /UI Design for Online Bookstore/i,
+    en: {
+      title: "UI Design for Online Bookstore",
+      description:
+        "UI/UX design for an online bookstore e-commerce website with 8 main pages. The design focuses on intuitive navigation, a modern look, and a comfortable shopping flow on desktop and mobile."
+    }
+  },
+  {
+    match: /UI Design for Consultation Patient Doctorify/i,
+    en: {
+      title: "UI Design for Consultation App Doctorify",
+      description:
+        "UI/UX design for the Doctorify mobile app for online specialist doctor consultations. The design includes onboarding, login, and a main dashboard that shows doctors by specialty."
+    }
+  },
+  {
+    match: /UI Design for Finance App Fineto/i,
+    en: {
+      title: "UI Design for Finance App Fineto",
+      description:
+        "UI/UX design for the Fineto mobile app to monitor investment portfolios, record daily transactions, and track income and expenses in a clean, informative interface."
+    }
+  },
+  {
+    match: /Web Design Cars Rent/i,
+    en: {
+      title: "Cars Rent Web Design",
+      description:
+        "A website design for a premium car showroom from Amsterdam with multi-page navigation and elegant visuals. The design emphasizes a premium user experience aligned with a high-end automotive brand."
+    }
+  },
+  {
+    match: /TeaZen/i,
+    en: {
+      title: "TeaZen - Organic Tea E-Commerce Web Design",
+      description:
+        "An e-commerce website design for the premium organic tea brand TeaZen with a clean, natural, and elegant look. The design includes a hero landing page, multi-page navigation, and a UI that reflects a wellness and mindfulness brand identity."
+    }
+  },
+  {
+    match: /CineWorld/i,
+    en: {
+      title: "CineWorld - Movie Streaming Landing Page",
+      description:
+        "A landing page design for a movie streaming platform called CineWorld with an elegant dark mode inspired by Netflix. Designed in Figma and implemented with Bolt.new, it includes a featured hero section, multi-section navigation, a rating system, and an immersive cinema-like UI."
+    }
+  },
+  {
+    match: /Wisata Indonesia/i,
+    en: {
+      title: "Wisata Indonesia - Travel Landing Page",
+      description:
+        "A travel agency landing page themed around Indonesian tourism using Emergent.sh as the AI builder. The concept starts with a PRD in Claude AI and a Figma draft, then becomes a single-page app with smooth-scroll navigation and scenic hero visuals."
+    }
+  }
+];
+
+const getLocalizedProjectCopy = (project, isEnglish) => {
+  if (!isEnglish) {
+    return { title: project.title, description: project.description };
+  }
+
+  const matched = PROJECT_COPY.find((entry) => entry.match.test(project.title));
+  return matched?.en || { title: project.title, description: project.description };
+};
+
+const applyFilters = (items, search, filters, isEnglish) => {
   const query = search.trim().toLowerCase();
   return items.filter((item) => {
+    const localized = getLocalizedProjectCopy(item, isEnglish);
     const searchable = [
       item.title,
       item.description,
+      localized.title,
+      localized.description,
       item.period,
       item.status,
       item.format,
@@ -28,11 +260,12 @@ const applyFilters = (items, search, filters) => {
 };
 
 const CategoryDetail = ({ category, items, onBack }) => {
+  const { t, isEnglish } = useLanguage();
   const [search, setSearch] = useState("");
   const [filters, setFilters] = useState({ type: "All" });
   const [gallery, setGallery] = useState(null);
 
-  const filtered = useMemo(() => applyFilters(items, search, filters), [items, search, filters]);
+  const filtered = useMemo(() => applyFilters(items, search, filters, isEnglish), [items, search, filters, isEnglish]);
   const showFormatFilter = ["software", "uiux"].includes(category.id);
   const formatLabel = (format) => {
     if (format === "Web") return { icon: <FaGlobe className="text-xs" />, label: "Web" };
@@ -49,6 +282,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
 
   const closeGallery = () => setGallery(null);
   const currentImage = gallery ? gallery.project.images[gallery.index] : null;
+  const galleryCopy = gallery ? getLocalizedProjectCopy(gallery.project, isEnglish) : null;
   const placeholderIcon = (format) => {
     if (format === "Mobile") return <FaMobileAlt className="text-5xl text-blue-200/80" />;
     if (format === "API") return <FaServer className="text-5xl text-blue-200/80" />;
@@ -64,7 +298,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
         className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition mb-6"
       >
         <FaArrowLeft />
-        Kembali ke kategori
+        {t("projects.back")}
       </button>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-5 mb-10 text-center md:text-left">
@@ -76,17 +310,17 @@ const CategoryDetail = ({ category, items, onBack }) => {
       </div>
 
       <div className={`grid grid-cols-1 gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 mb-8 ${showFormatFilter ? "lg:grid-cols-4" : "lg:grid-cols-1"}`}>
-        <input
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Keyword project..."
-          className={`bg-black/40 border border-white/10 text-white px-4 py-3 rounded-xl outline-none focus:border-blue-400 transition ${showFormatFilter ? "lg:col-span-3" : "lg:col-span-1"}`}
-        />
+          <input
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder={t("projects.search")}
+            className={`bg-black/40 border border-white/10 text-white px-4 py-3 rounded-xl outline-none focus:border-blue-400 transition ${showFormatFilter ? "lg:col-span-3" : "lg:col-span-1"}`}
+          />
         {showFormatFilter && (
           <select
             value={filters.type}
             onChange={(e) => setFilters({ ...filters, type: e.target.value })}
-            aria-label="Filter format"
+            aria-label={t("projects.filter.format")}
             className="bg-black/40 border border-white/10 text-white px-3 py-3 rounded-xl outline-none focus:border-blue-400 transition"
           >
             {FILTER_CONFIG.type.map((option) => (
@@ -100,12 +334,18 @@ const CategoryDetail = ({ category, items, onBack }) => {
 
       {filtered.length === 0 && (
         <div className="text-gray-400 text-center py-10 border border-white/10 rounded-2xl bg-white/5">
-          Tidak ada project yang sesuai filter ini.
+          {t("projects.empty")}
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 perspective-[1200px]">
         {filtered.map((project, index) => (
+          (() => {
+            const localized = getLocalizedProjectCopy(project, isEnglish);
+            const projectTitle = localized.title;
+            const projectDescription = localized.description;
+
+            return (
           <motion.div
             key={`${project.title}-${index}`}
             className="bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 rounded-3xl overflow-hidden shadow-xl group transform-gpu"
@@ -115,15 +355,15 @@ const CategoryDetail = ({ category, items, onBack }) => {
           >
             <div className="relative">
               {project.images?.[0] || project.image ? (
-                <button
-                  type="button"
-                  onClick={() => openGallery(project, 0)}
-                  className="block w-full text-left"
-                  aria-label={`Open screenshots for ${project.title}`}
-                >
+                  <button
+                    type="button"
+                    onClick={() => openGallery(project, 0)}
+                    className="block w-full text-left"
+                    aria-label={`Open screenshots for ${localized.title}`}
+                  >
                   <img
                     src={project.images?.[0] || project.image}
-                    alt={project.title}
+                    alt={projectTitle}
                     className="w-full h-44 object-cover group-hover:scale-105 transition-transform duration-500 bg-slate-900"
                   />
                 </button>
@@ -139,13 +379,13 @@ const CategoryDetail = ({ category, items, onBack }) => {
                   </span>
                 </button>
               )}
-              {project.images?.length > 0 && (
-                <button
-                  type="button"
-                  onClick={() => openGallery(project, 0)}
-                  className="absolute bottom-3 left-3 bg-black/70 hover:bg-black/90 text-xs px-3 py-1 rounded-full border border-white/20 transition inline-flex items-center gap-2"
-                >
-                  Lihat gambar
+                {project.images?.length > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => openGallery(project, 0)}
+                    className="absolute bottom-3 left-3 bg-black/70 hover:bg-black/90 text-xs px-3 py-1 rounded-full border border-white/20 transition inline-flex items-center gap-2"
+                  >
+                  {t("projects.lihatGambar")}
                   {project.images.length > 1 && <span>+{project.images.length - 1}</span>}
                 </button>
               )}
@@ -165,8 +405,8 @@ const CategoryDetail = ({ category, items, onBack }) => {
                   {project.period}
                 </p>
               )}
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-300 text-sm mb-4">{project.description}</p>
+              <h3 className="text-xl font-semibold mb-2">{projectTitle}</h3>
+              <p className="text-gray-300 text-sm mb-4">{projectDescription}</p>
               <div className="flex flex-wrap gap-2 text-xs text-white mb-4">
                 {project.stack.map((tag) => (
                   <span key={tag} className="px-2 py-1 bg-white/15 border border-white/20 rounded-full text-slate-50 shadow-sm">
@@ -190,7 +430,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                     className="inline-flex flex-1 items-center justify-center gap-2 text-center bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 rounded-full transition"
                   >
                     <FaGlobe className="text-xs" />
-                    Demo
+                    {t("projects.demo")}
                   </a>
                 )}
                 {project.youtube && (
@@ -201,7 +441,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                     className="inline-flex flex-1 items-center justify-center gap-2 text-center bg-rose-600/90 hover:bg-rose-600 text-white text-sm py-2 rounded-full transition"
                   >
                     <FaYoutube className="text-xs" />
-                    YouTube
+                    {t("projects.youtube")}
                   </a>
                 )}
                 {project.github && (
@@ -212,7 +452,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                     className="inline-flex flex-1 items-center justify-center gap-2 text-center bg-white/10 hover:bg-white/20 text-white text-sm py-2 rounded-full transition"
                   >
                     <FaGithub className="text-xs" />
-                    GitHub
+                    {t("projects.github")}
                   </a>
                 )}
                 {project.images?.length > 0 && (
@@ -221,12 +461,14 @@ const CategoryDetail = ({ category, items, onBack }) => {
                     onClick={() => openGallery(project, 0)}
                     className="inline-flex flex-1 items-center justify-center gap-2 text-center bg-amber-500/80 hover:bg-amber-500 text-white text-sm py-2 rounded-full transition"
                   >
-                    Lihat gambar
+                    {t("projects.lihatGambar")}
                   </button>
                 )}
               </div>
             </div>
           </motion.div>
+            );
+          })()
         ))}
       </div>
 
@@ -247,15 +489,15 @@ const CategoryDetail = ({ category, items, onBack }) => {
                 {currentImage ? (
                   <img
                     src={currentImage}
-                    alt={`${gallery.project.title} screenshot ${gallery.index + 1}`}
+                    alt={`${galleryCopy?.title || gallery.project.title} screenshot ${gallery.index + 1}`}
                     className="w-full h-[45vh] sm:h-[55vh] md:h-[60vh] lg:h-[70vh] max-h-[75vh] object-contain mx-auto bg-black p-4"
                   />
                 ) : (
                   <div className="w-full h-[55vh] lg:h-[70vh] bg-gradient-to-br from-slate-900 via-black to-slate-950 flex flex-col items-center justify-center text-center px-6">
                     {placeholderIcon(gallery.project.format)}
-                    <h4 className="mt-4 text-xl font-semibold text-white">{gallery.project.title}</h4>
+                    <h4 className="mt-4 text-xl font-semibold text-white">{galleryCopy?.title || gallery.project.title}</h4>
                     <p className="mt-2 text-sm text-gray-300 max-w-md">
-                      Project ini tidak memiliki screenshot, jadi detail visualnya ditampilkan sebagai ikon dan informasi project.
+                      {t("about.activity.noImage")}
                     </p>
                   </div>
                 )}
@@ -264,15 +506,15 @@ const CategoryDetail = ({ category, items, onBack }) => {
               <div className="p-5 lg:p-6 flex flex-col gap-4">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-blue-200/60">{gallery.project.period}</p>
-                  <h3 className="text-2xl font-semibold mt-2">{gallery.project.title}</h3>
-                  <p className="text-sm text-gray-300 mt-2">{gallery.project.description}</p>
+                  <h3 className="text-2xl font-semibold mt-2">{galleryCopy?.title || gallery.project.title}</h3>
+                  <p className="text-sm text-gray-300 mt-2">{galleryCopy?.description || gallery.project.description}</p>
                 </div>
 
                 {gallery.project.images?.length > 0 && (
                   <>
                     <div className="flex items-center justify-between text-sm text-gray-300">
                       <span>
-                        Screenshot {gallery.index + 1} / {gallery.project.images.length}
+                        {t("projects.screenshot")} {gallery.index + 1} / {gallery.project.images.length}
                       </span>
                       <div className="flex gap-2">
                         <button
@@ -283,7 +525,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                           }))}
                           className="px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10"
                         >
-                          Prev
+                          {t("about.activity.previous")}
                         </button>
                         <button
                           type="button"
@@ -293,7 +535,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                           }))}
                           className="px-3 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10"
                         >
-                          Next
+                          {t("about.activity.next")}
                         </button>
                       </div>
                     </div>
@@ -322,7 +564,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                       className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-full"
                     >
                       <FaGlobe className="text-xs" />
-                      Demo
+                      {t("projects.demo")}
                     </a>
                   )}
                   {gallery.project.youtube && (
@@ -333,7 +575,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                       className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white text-sm px-4 py-2 rounded-full"
                     >
                       <FaYoutube className="text-xs" />
-                      YouTube
+                      {t("projects.youtube")}
                     </a>
                   )}
                   {gallery.project.github && (
@@ -344,7 +586,7 @@ const CategoryDetail = ({ category, items, onBack }) => {
                       className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white text-sm px-4 py-2 rounded-full"
                     >
                       <FaGithub className="text-xs" />
-                      GitHub
+                      {t("projects.github")}
                     </a>
                   )}
                 </div>
@@ -373,9 +615,12 @@ const categoryMeta = {
 };
 
 const ProjectsPage = () => {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(null);
   const categories = PROJECT_CATEGORIES.map((item) => ({
     ...item,
+    title: t(`projects.category.${item.id}.title`),
+    subtitle: t(`projects.category.${item.id}.subtitle`),
     icon: categoryMeta[item.id]?.icon
   }));
 
@@ -390,9 +635,9 @@ const ProjectsPage = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9 }}
       >
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">Projects</h1>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">{t("projects.page.title")}</h1>
         <p className="text-gray-300 max-w-2xl mx-auto">
-          Pilih kategori project terlebih dahulu, lalu cari project lewat keyword judul, stack, atau topik. Untuk Software dan UI/UX, kamu juga bisa filter Web atau Mobile.
+          {t("projects.page.description")}
         </p>
       </motion.div>
 
@@ -419,13 +664,13 @@ const ProjectsPage = () => {
                   <div>
                     <h2 className="text-2xl font-semibold">{category.title}</h2>
                     <p className="text-xs text-blue-200/70 mt-1">
-                      {PROJECTS[category.id]?.length || 0} Projects
+                      {PROJECTS[category.id]?.length || 0} {t("projects.countLabel")}
                     </p>
                   </div>
                 </div>
                 <p className="text-gray-300 text-sm mb-6 relative z-10">{category.subtitle}</p>
                 <div className="inline-flex items-center gap-2 text-sm text-blue-200/80 relative z-10">
-                  Lihat detail
+                  {t("projects.viewDetail")}
                   <FaArrowRight className="text-blue-300/80" />
                 </div>
               </motion.button>

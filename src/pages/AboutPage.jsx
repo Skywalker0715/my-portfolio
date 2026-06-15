@@ -67,6 +67,7 @@ import poster from "../assets/gambar_project/ngalir/poster.jpg";
 import dashboard from "../assets/gambar_project/ngalir/dashboard.png";
 import sertifDgm from "../assets/dokumentasi/digital_marketing/Sertif_dgm.jpg";
 import suratRekomendasiDgm from "../assets/dokumentasi/digital_marketing/srkdb.jpg";
+import { useLanguage } from "../context/LanguageContext";
 
 const digitalMarketingImagesByName = import.meta.glob(
   "../assets/dokumentasi/digital_marketing/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
@@ -91,16 +92,19 @@ const digitalMarketingImages = [
 
 const highlights = [
   {
+    key: "background",
     title: "Background",
     value: "Informatika, IPK 3.65",
     description: "Lulusan 2025 dari Universitas Katolik Musi Charitas."
   },
   {
+    key: "focus",
     title: "Core Focus",
     value: "Software + Data + AI",
     description: "Fokus pada pengembangan aplikasi, analitik data, dan AI integration."
   },
   {
+    key: "experience",
     title: "Experience",
     value: "Organisasi, Magang, Freelance",
     description: "Menggabungkan teamwork, digitalisasi, dan delivery project."
@@ -109,6 +113,7 @@ const highlights = [
 
 const activities = [
   {
+    key: "organization",
     title: "Organisasi HIMA Informatika",
     period: "2022 - 2023",
     role: "Pengurus / Koordinator Kegiatan",
@@ -124,6 +129,7 @@ const activities = [
     ]
   },
   {
+    key: "internship",
     title: "Magang Thamrin Group",
     period: "26 Feb - 29 Jun 2024",
     role: "Software Developer Intern - ICT Division",
@@ -139,6 +145,7 @@ const activities = [
     ]
   },
   {
+    key: "community",
     title: "Pengabdian Masyarakat",
     period: "Agustus 2024",
     role: "Web Application Developer",
@@ -154,6 +161,7 @@ const activities = [
     ]
   },
   {
+    key: "aiTrack",
     title: "AI Track FGA",
     period: "Mar - Mei 2025",
     role: "Peserta Pelatihan AI",
@@ -169,6 +177,7 @@ const activities = [
     ]
   },
   {
+    key: "freelance",
     title: "Freelance Project Phase 1",
     period: "Des 2025 - April 2026",
     role: "Web Application Developer",
@@ -177,53 +186,57 @@ const activities = [
       "Membangun aplikasi Sistem Informasi Penjualan dan Manajemen Stok Barang untuk Pratama Motor guna mendigitalisasi dan merapikan proses operasional toko.",
     impact: ["Finished", "System Design", "Web App"],
     details: [
-     "Membangun sistem autentikasi dengan hak akses berbasis role Admin dan Kasir.",
-    "Mengembangkan manajemen produk, stok barang, dan transaksi penjualan dengan pengurangan stok otomatis.",
-    "Membuat fitur retur barang dan histori harga produk.",
-    "Mengembangkan laporan penjualan & keuangan dengan fitur export PDF dan Excel.",
-    "Proyek selesai dan dilanjutkan ke kontrak baru (Phase 2) dengan fitur yang lebih kompleks."
+      "Membangun sistem autentikasi dengan hak akses berbasis role Admin dan Kasir.",
+      "Mengembangkan manajemen produk, stok barang, dan transaksi penjualan dengan pengurangan stok otomatis.",
+      "Membuat fitur retur barang dan histori harga produk.",
+      "Mengembangkan laporan penjualan & keuangan dengan fitur export PDF dan Excel.",
+      "Proyek selesai dan dilanjutkan ke kontrak baru (Phase 2) dengan fitur yang lebih kompleks."
     ]
   },
   {
-  title: "AI/ML & Full Stack Developer – GDG Live Indonesia Hackathon",
-  period: "Mei 2026",
-  role: "AI/ML & Full Stack Developer",
-  images: [poster, dashboard],
-  description:
-    "Mengembangkan aplikasi kasir cerdas berbasis AI bernama NGALIR untuk membantu UMKM Indonesia mengoptimalkan operasional bisnis mereka dalam ajang GDG Live Indonesia.",
-  impact: ["AI Integration", "Machine Learning", "Full Stack Development", "Finished","Hackathon"],
-  details: [
-    "Mengintegrasikan Google AI Studio & Gemini API untuk fitur Voice AI Chat dan Proactive AI yang memberikan insight bisnis secara otomatis.",
-    "Membangun arsitektur database inventory real-time menggunakan Firebase.",
-    "Mengembangkan sistem kasir digital dengan kalkulasi otomatis.",
-    "Membuat fitur ekspor laporan bisnis langsung ke format PDF."
-  ]
-},
+    key: "hackathon",
+    title: "AI/ML & Full Stack Developer - GDG Live Indonesia Hackathon",
+    period: "Mei 2026",
+    role: "AI/ML & Full Stack Developer",
+    images: [poster, dashboard],
+    description:
+      "Mengembangkan aplikasi kasir cerdas berbasis AI bernama NGALIR untuk membantu UMKM Indonesia mengoptimalkan operasional bisnis mereka dalam ajang GDG Live Indonesia.",
+    impact: ["AI Integration", "Machine Learning", "Full Stack Development", "Finished", "Hackathon"],
+    details: [
+      "Mengintegrasikan Google AI Studio & Gemini API untuk fitur Voice AI Chat dan Proactive AI yang memberikan insight bisnis secara otomatis.",
+      "Membangun arsitektur database inventory real-time menggunakan Firebase.",
+      "Mengembangkan sistem kasir digital dengan kalkulasi otomatis.",
+      "Membuat fitur ekspor laporan bisnis langsung ke format PDF."
+    ]
+  },
   {
-  title: "Digital Marketing Bootcamp",
-  period: "Mei 2026",
-  role: "Digital Marketing Specialist",
-  images: digitalMarketingImages,
-  description:
-    "Mengikuti 2 weeks intensive bootcamp Digital Marketing bersama KarirNex × Ebizmark, mempelajari dan mempraktikkan strategi digital marketing secara menyeluruh sebagai langkah transisi dari background programmer menuju dunia digital marketing.",
-  impact: ["Digital Marketing", "SEO", "Content Strategy", "KOL Management"],
-  details: [
-    "Mempelajari riset customer persona dan value proposition untuk strategi pemasaran yang tepat sasaran.",
-    "Mengembangkan strategi konten dan manajemen KOL (Key Opinion Leader) untuk meningkatkan brand awareness.",
-    "Memahami dan mempraktikkan SEO serta optimasi landing page untuk meningkatkan visibilitas online.",
-    "Bootcamp ini menjadi langkah awal transisi karir dari background programmer menuju dunia digital marketing."
-  ]
-}
+    key: "digitalMarketing",
+    title: "Digital Marketing Bootcamp",
+    period: "Mei 2026",
+    role: "Digital Marketing Specialist",
+    images: digitalMarketingImages,
+    description:
+      "Mengikuti 2 weeks intensive bootcamp Digital Marketing bersama KarirNex x Ebizmark, mempelajari dan mempraktikkan strategi digital marketing secara menyeluruh sebagai langkah transisi dari background programmer menuju dunia digital marketing.",
+    impact: ["Digital Marketing", "SEO", "Content Strategy", "KOL Management"],
+    details: [
+      "Mempelajari riset customer persona dan value proposition untuk strategi pemasaran yang tepat sasaran.",
+      "Mengembangkan strategi konten dan manajemen KOL (Key Opinion Leader) untuk meningkatkan brand awareness.",
+      "Memahami dan mempraktikkan SEO serta optimasi landing page untuk meningkatkan visibilitas online.",
+      "Bootcamp ini menjadi langkah awal transisi karir dari background programmer menuju dunia digital marketing."
+    ]
+  }
 ];
 
 const certificates = [
   {
+    key: "digitalMarketingCert",
     title: "2 Weeks Intensive Bootcamp Digital Marketing Batch 3",
     issuer: "KarirNex by PT Ebiz Karisma Internasional",
     date: "Mei 2026",
     image: sertifDgm
   },
   {
+    key: "digitalMarketingReco",
     title: "Surat Rekomendasi Keahlian Digital Marketing",
     issuer: "KarirNex by PT Ebiz Karisma Internasional",
     date: "Mei 2026",
@@ -439,6 +452,8 @@ const renderGallery = (images, altPrefix) => {
 };
 
 const AboutPage = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-gray-900 to-black text-white py-24 px-6 relative overflow-hidden">
       <div className="absolute -top-32 left-1/3 h-72 w-72 rounded-full bg-blue-500/20 blur-[120px]" />
@@ -466,9 +481,7 @@ const AboutPage = () => {
             <div>
               <h1 className="text-4xl md:text-5xl font-bold">Rendy Saputra</h1>
               <p className="text-gray-300 mt-4 max-w-3xl">
-                Software developer dengan fokus pada pengembangan aplikasi, data-driven solutions, dan AI. Pengalaman
-                saya terbentuk dari organisasi, magang, pengabdian masyarakat, dan project freelance yang menekankan
-                kolaborasi, dokumentasi, dan delivery yang rapi.
+                {t("about.page.description")}
               </p>
             </div>
 
@@ -480,9 +493,9 @@ const AboutPage = () => {
                   style={{ transformStyle: "preserve-3d" }}
                   {...cardMotion}
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-blue-200/70">{item.title}</p>
-                  <h3 className="text-lg font-semibold mt-2">{item.value}</h3>
-                  <p className="text-xs text-gray-300 mt-2">{item.description}</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-blue-200/70">{t(`about.highlight.${item.key}.title`)}</p>
+                  <h3 className="text-lg font-semibold mt-2">{t(`about.highlight.${item.key}.value`)}</h3>
+                  <p className="text-xs text-gray-300 mt-2">{t(`about.highlight.${item.key}.description`)}</p>
                 </motion.div>
               ))}
             </div>
@@ -495,23 +508,23 @@ const AboutPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <FaBriefcase className="text-blue-300 text-2xl" />
-            <h2 className="text-2xl font-semibold">Dokumentasi Kegiatan</h2>
-          </div>
+            <div className="flex items-center gap-3 mb-8">
+              <FaBriefcase className="text-blue-300 text-2xl" />
+            <h2 className="text-2xl font-semibold">{t("about.section.activities")}</h2>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {activities.map((activity) => (
-              <motion.div
-                key={activity.title}
+              {activities.map((activity) => (
+                <motion.div
+                  key={activity.title}
                 className="bg-black/40 border border-white/10 rounded-2xl p-5 transform-gpu"
                 style={{ transformStyle: "preserve-3d" }}
                 {...cardMotion}
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-blue-200/60">{activity.period}</p>
-                <h3 className="text-lg font-semibold mt-2">{activity.title}</h3>
-                <p className="text-sm text-blue-200/80 mt-1">{activity.role}</p>
-                <p className="text-sm text-gray-300 mt-3">{activity.description}</p>
+                <h3 className="text-lg font-semibold mt-2">{t(`about.activity.${activity.key}.title`)}</h3>
+                <p className="text-sm text-blue-200/80 mt-1">{t(`about.activity.${activity.key}.role`)}</p>
+                <p className="text-sm text-gray-300 mt-3">{t(`about.activity.${activity.key}.description`)}</p>
 
                 <div className="flex flex-wrap gap-2 mt-4 text-xs text-emerald-200">
                   {activity.impact.map((tag) => (
@@ -522,8 +535,10 @@ const AboutPage = () => {
                 </div>
 
                 <ul className="mt-4 space-y-2 text-sm text-gray-300 list-disc list-inside">
-                  {activity.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
+                  {activity.details.map((detail, index) => (
+                    <li key={detail}>
+                      {t(`about.activity.${activity.key}.detail${index + 1}`)}
+                    </li>
                   ))}
                 </ul>
 
@@ -539,10 +554,10 @@ const AboutPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <FaCertificate className="text-emerald-300 text-2xl" />
-            <h2 className="text-2xl font-semibold">Sertifikasi Unggulan</h2>
-          </div>
+            <div className="flex items-center gap-3 mb-8">
+              <FaCertificate className="text-emerald-300 text-2xl" />
+            <h2 className="text-2xl font-semibold">{t("about.section.certificates")}</h2>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
             {certificates.map((certificate) => (
@@ -560,7 +575,13 @@ const AboutPage = () => {
                   />
                 )}
                 <p className="text-xs uppercase tracking-[0.2em] text-blue-200/60">{certificate.date}</p>
-                <h3 className="text-sm font-semibold mt-2 leading-snug">{certificate.title}</h3>
+                <h3 className="text-sm font-semibold mt-2 leading-snug">
+                  {certificate.key === "digitalMarketingCert"
+                    ? t("about.certificate.digitalMarketingCert")
+                    : certificate.key === "digitalMarketingReco"
+                      ? t("about.certificate.digitalMarketingReco")
+                      : certificate.title}
+                </h3>
                 <p className="text-xs text-gray-300 mt-2">{certificate.issuer}</p>
               </motion.div>
             ))}
@@ -573,10 +594,10 @@ const AboutPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="flex items-center gap-3 mb-8">
-            <FaAward className="text-emerald-300 text-2xl" />
-            <h2 className="text-2xl font-semibold">Keahlian Inti</h2>
-          </div>
+            <div className="flex items-center gap-3 mb-8">
+              <FaAward className="text-emerald-300 text-2xl" />
+            <h2 className="text-2xl font-semibold">{t("about.section.skills")}</h2>
+            </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {skillGroups.map((group) => (
@@ -612,3 +633,4 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+

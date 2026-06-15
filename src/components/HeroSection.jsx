@@ -1,10 +1,42 @@
-import React from 'react';
-import { TypeAnimation } from 'react-type-animation';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
-// komentar untuk testing
 const HeroSection = () => {
+  const { t, isEnglish } = useLanguage();
+
+  const sequences = isEnglish
+    ? [
+        "Web Development",
+        1200,
+        "Software Engineering",
+        1200,
+        "Fullstack Developer",
+        1200,
+        "AI Engineer",
+        1200,
+        "Data Analytics",
+        1200,
+        "Machine Learning",
+        1200
+      ]
+    : [
+        "Web Development",
+        1200,
+        "Software Engineering",
+        1200,
+        "Fullstack Developer",
+        1200,
+        "AI Engineer",
+        1200,
+        "Data Analytics",
+        1200,
+        "Machine Learning",
+        1200
+      ];
+
   return (
     <section className="hero-section bg-gradient-to-b from-slate-950 via-gray-900 to-black pt-12 pb-20 md:pt-16 overflow-hidden relative">
       <div className="absolute -top-24 left-1/3 h-72 w-72 rounded-full bg-blue-500/25 blur-[140px]" />
@@ -20,29 +52,15 @@ const HeroSection = () => {
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Rendy Saputra
             <span className="block text-xl md:text-2xl font-medium text-blue-200/80 mt-3">
-              Software Engineer - Data & AI
+              {t("hero.subtitle")}
             </span>
           </h1>
           <p className="text-gray-300 max-w-xl">
-            Membangun aplikasi yang rapi, scalable, dan siap digunakan, dengan pendekatan data-driven untuk menghasilkan
-            solusi yang presisi.
+            {t("hero.description")}
           </p>
           <div className="text-base sm:text-lg text-gray-200 min-h-[28px]">
             <TypeAnimation
-              sequence={[
-                "Web Development",
-                1200,
-                "Software Engineering",
-                1200,
-                "Fullstack Developer",
-                1200,
-                 "AI Engineer",
-                1200,
-                "Data Analytics",
-                1200,
-                "Machine Learning",
-                1200
-              ]}
+              sequence={sequences}
               wrapper="span"
               speed={50}
               repeat={Infinity}
@@ -55,7 +73,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-5 rounded-full transition-all duration-300 text-sm w-full sm:w-auto"
               >
-                Explore Projects
+                {t("hero.cta.projects")}
               </motion.button>
             </Link>
             <Link to="/contact">
@@ -64,7 +82,7 @@ const HeroSection = () => {
                 whileTap={{ scale: 0.98 }}
                 className="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-5 rounded-full transition-all duration-300 text-sm w-full sm:w-auto"
               >
-                Let's Collaborate
+                {t("hero.cta.contact")}
               </motion.button>
             </Link>
           </div>
@@ -83,8 +101,8 @@ const HeroSection = () => {
             style={{ transformStyle: "preserve-3d" }}
           >
             <div className="flex items-center justify-between text-xs text-gray-300 mb-4">
-              <span>Updated 2026</span>
-              <span className="text-blue-300">AI - Data - Apps</span>
+              <span>{t("hero.updated")}</span>
+              <span className="text-blue-300">{t("hero.tagline")}</span>
             </div>
             <motion.img
               animate={{ y: [-6, 6, -6] }}
