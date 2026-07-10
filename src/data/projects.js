@@ -202,7 +202,6 @@ export const PROJECTS = {
     stack: ["Firebase", "Gemini API", "Google AI Studio", "Google Cloud"],
     tech: ["AI Integration", "Hackathon", "UMKM Solutions", "Web App"],
     images: projectImages("ngalir", ["dashboard.png", "iventory.png", "kasir.png","laporan.png","chat.png"]),
-    demo: "https://ngalir-160878882468.asia-southeast1.run.app/"
 }
   ],
   data: [
