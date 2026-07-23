@@ -63,11 +63,14 @@ import bnsp from "../assets/dokumentasi/bnsp.jpg";
 import reactCert from "../assets/dokumentasi/react.png";
 import toefl from "../assets/dokumentasi/toefl.jpg";
 import revou from "../assets/dokumentasi/revou.jpg";
+import vibeCodingCertImage from "../assets/dokumentasi/vibecoding.jpg";
 import poster from "../assets/gambar_project/ngalir/poster.jpg";
 import dashboard from "../assets/gambar_project/ngalir/dashboard.png";
 import sertifDgm from "../assets/dokumentasi/digital_marketing/Sertif_dgm.jpg";
 import suratRekomendasiDgm from "../assets/dokumentasi/digital_marketing/srkdb.jpg";
 import { useLanguage } from "../context/LanguageContext";
+
+const pratamaMotorPhase2Images = []; // Belum ada gambar dokumentasi spesifik untuk Phase 2
 
 const digitalMarketingImagesByName = import.meta.glob(
   "../assets/dokumentasi/digital_marketing/*.{png,jpg,jpeg,PNG,JPG,JPEG}",
@@ -224,10 +227,39 @@ const activities = [
       "Memahami dan mempraktikkan SEO serta optimasi landing page untuk meningkatkan visibilitas online.",
       "Bootcamp ini menjadi langkah awal transisi karir dari background programmer menuju dunia digital marketing."
     ]
-  }
+  },
+  {
+    key: "pratamaMotorPhase2",
+    title: "Web Application Developer - Pratama Motor Project (Phase 2)",
+    company: "Pratama Motor",
+    type: "Freelance",
+    period: "Jun 2026 - Present",
+    duration: "2 bulan",
+    location: "Palembang, South Sumatra, Indonesia (Remote)",
+    role: "Web Application Developer",
+    images: pratamaMotorPhase2Images, // array gambar dokumentasi
+    description: "Alhamdulillah dipercaya kembali untuk melanjutkan pengembangan Sistem Informasi Penjualan & Stok Barang Pratama Motor ke Phase 2 melalui kontrak baru.",
+    impact: ["Manajemen Piutang", "Integrasi Supplier", "Kalkulasi Laba Rugi", "System Improvement"],
+    details: [
+        "Mengembangkan fitur Manajemen Piutang",
+        "Melakukan integrasi dengan sistem Supplier",
+        "Meningkatkan perhitungan Laba Rugi yang lebih lengkap dan akurat",
+        "Melakukan improvement keseluruhan sistem dari Phase 1",
+        "Bekerja secara Full Remote dari Palembang untuk klien di Muara Enim"
+    ]
+}
 ];
 
 const certificates = [
+  {
+    key: "vibeCodingCert",
+    title: "Top 100 Juara Vibe Coding",
+    issuer: "Google Developers Group",
+    date: "Jun 2026",
+    credentialId: "JVC2605-MFUJ-JQP9",
+    description: "Generative AI Studio, Application Development and +3 skills",
+    image: vibeCodingCertImage
+},
   {
     key: "digitalMarketingCert",
     title: "2 Weeks Intensive Bootcamp Digital Marketing Batch 3",
