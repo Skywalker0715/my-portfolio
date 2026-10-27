@@ -53,6 +53,16 @@ import hima2 from "../assets/dokumentasi/hima2.JPG";
 import skif from "../assets/dokumentasi/skif.png";
 import bap from "../assets/dokumentasi/bap.png";
 import freelance from "../assets/dokumentasi/f1.png";
+import ocr1 from "../assets/gambar_project/programming/ocr/o1.png";
+import ocr2 from "../assets/gambar_project/programming/ocr/o2.png";
+import fluenta1 from "../assets/gambar_project/ai/translator/chat.png";
+import fluenta2 from "../assets/gambar_project/ai/translator/dokumen menu.png";
+import fluenta3 from "../assets/gambar_project/ai/translator/terjemah.png";
+import fluenta4 from "../assets/gambar_project/ai/translator/ch1.png";
+import stockpilot1 from "../assets/gambar_project/ai/stockpilot/dashboard.png";
+import stockpilot2 from "../assets/gambar_project/ai/stockpilot/generate.png";
+import stockpilot3 from "../assets/gambar_project/ai/stockpilot/library.png";
+import stockpilot4 from "../assets/gambar_project/ai/stockpilot/vision.png";
 import hacth from "../assets/dokumentasi/hacth.jpg";
 import oracle from "../assets/dokumentasi/oracle.jpg";
 import bitlab from "../assets/dokumentasi/bitlab.jpg";
@@ -246,8 +256,74 @@ const activities = [
         "Meningkatkan perhitungan Laba Rugi yang lebih lengkap dan akurat",
         "Melakukan improvement keseluruhan sistem dari Phase 1",
         "Bekerja secara Full Remote dari Palembang untuk klien di Muara Enim"
-    ]
-}
+    ],
+    },
+    {
+        key: "catatanBelanja",
+        title: "Catatan Belanja - Aplikasi Pencatat Pengeluaran dari Struk",
+        company: "Sendiri / Pribadi",
+        type: "Personal Project",
+        period: "Agustus 2026 - Oktober 2026",
+        role: "Full Stack Developer",
+        images: [ocr1, ocr2],
+        description:
+            "Aplikasi web pencatat keuangan lengkap berbasis OCR + AI. Unggah foto struk belanja: teks dibaca otomatis dengan Tesseract OCR, lalu di-parsing menjadi data terstruktur (vendor, tanggal, kategori, item, total, kembalian) oleh AI (Cohere) dengan fallback regex bila API gagal. Selain pengeluaran, juga mencatat pemasukan, utang piutang dengan status pelunasan otomatis, laporan kas arus, dan asisten Tanya AI. Semua data disimpan di PostgreSQL dan dikelola lewat panel admin Filament v4. Dibangun untuk segmen personal dan UMKM (multi-user).",
+        impact: ["OCR", "Automation", "Expense Tracking", "Admin Panel", "AI Integration"],
+        details: [
+            "OCR Tesseract untuk membaca teks struk dengan kompresi gambar otomatis",
+            "Parsing AI (Cohere) ke data terstruktur dengan fallback regex bila API gagal",
+            "Pencatatan pemasukan, pengeluaran, dan utang piutang dengan status pelunasan otomatis",
+            "Laporan kas arus dan laporan keuangan dengan export Excel & PDF",
+            "Panel admin Filament v4 untuk CRUD data dan manajemen budget",
+            "Fitur Tanya AI untuk insight keuangan dengan bahasa natural",
+            "Multi-user dengan scope data per user",
+            "Dibangun dengan Laravel 12, PostgreSQL, dan Tesseract OCR"
+        ]
+    },
+    {
+        key: "fluenta",
+        title: "Fluenta - Aplikasi Pembelajaran Bahasa Inggris AI",
+        company: "Sendiri / Pribadi",
+        type: "AI Application",
+        period: "oct 2026",
+        role: "Full Stack Developer (Python / Streamlit)",
+        images: [fluenta1, fluenta2, fluenta3, fluenta4],
+        description:
+            "Aplikasi pembelajaran bahasa Inggris untuk penutur Indonesia dengan chat teks dan suara, koreksi grammar, dan pemrosesan dokumen. Dibangun dengan Streamlit dan Google Gemini sebagai tutor AI, dilengkapi STT (Deepgram), TTS (ElevenLabs), terjemah lokal Opus-MT, dan halaman pemrosesan dokumen (PDF/DOCX/TXT). Riwayat sesi disimpan di SQLite lokal.",
+        impact: ["AI Integration", "Chatbot", "TTS/STT", "Document Processing", "Streamlit"],
+        details: [
+            "Chat teks dan suara dengan tutor AI (Gemini), balasan dapat diutarakan melalui TTS",
+            "Koreksi grammar dengan penjelasan dalam Bahasa Indonesia (baris 'Fix: ...')",
+            "Pilihan bahasa belajar (Inggris, Mandarin, Jepang) dan level (beginner, intermediate, advanced)",
+            "Kirim otomatis saat diam melalui JavaScript yang disuntikkan ke antarmuka Streamlit",
+            "Riwayat sesi chat tersimpan di SQLite, daftar sesi ditampilkan di sidebar",
+            "Halaman Dokumen: unggah PDF/DOCX/TXT, terjemahkan atau rangkum, unduh hasil TXT/DOCX",
+            "Halaman Terjemah: terjemahkan teks dengan model lokal Indonesia-Inggris atau Gemini",
+            "Arsitektur layanan terpisah: llm, stt, tts, translate, docs, dan db.py"
+        ]
+    },
+    {
+        key: "stockpilot",
+        title: "StockPilot AI - Local-First Stock Image Workspace",
+        company: "Sendiri / Pribadi",
+        type: "AI Application",
+        period: "Oktober 2026",
+        role: "Full Stack Developer (FastAPI / React)",
+        images: [stockpilot1, stockpilot2, stockpilot3, stockpilot4],
+        description:
+            "StockPilot AI adalah workspace lokal untuk kreator stok image dalam mengelola aset, menyiapkan metadata, dan meninjau insight gambar hasil AI. Semua gambar dan metadata disimpan di database SQLite lokal. Analisis Cohere bersifat opsional dan hanya digunakan sebagai draft yang harus ditinjau serta disetujui kreator sebelum disimpan. Dibangun dengan Python FastAPI backend, React TypeScript Vite frontend, dan SQLite.",
+        impact: ["AI Integration", "Computer Vision", "Local-First", "Metadata Management", "FastAPI"],
+        details: [
+            "Library: unggah gambar; buat, cari, edit, arsipkan, pulihkan, dan hapus catatan aset; kelola metadata dan kata kunci",
+            "Metadata saran: output visual Cohere bersifat draft, tidak disimpan hingga ditinjau dan secara eksplisit diterapkan",
+            "Vision Insights: analisis atribut visual, kasus penggunaan potensi, celah kata kunci, kualitas metadata, dan rekomendasi",
+            "Review data: backend menyimpan riwayat pengajuan dan penolakan serta ringkasan API",
+            "Dashboard: hitungan deterministik dan rentang tanggal dari data lokal, tanpa prediksi penerimaan atau penjualan",
+            "Kontrol privasi: kedua alur kerja AI memerlukan persetujuan per gambar sebelum mengirim ke Cohere",
+            "CSV import/export, pemindaian kesamaan, multi-user, dan otomatisasi platform belum diimplementasikan",
+            "Dibangun dengan Python FastAPI, React TypeScript, Vite, dan SQLite (lokal-first, tanpa autentikasi)"
+        ]
+    }
 ];
 
 const certificates = [
@@ -474,6 +550,7 @@ const renderGallery = (images, altPrefix) => {
           key={`${altPrefix}-${index}`}
           src={image}
           alt={`${altPrefix} ${index + 1}`}
+          loading="lazy"
           className={`w-full rounded-xl object-cover border border-white/10 ${
             images.length === 1 ? "h-40 sm:max-w-sm sm:mx-auto" : "h-24 sm:h-28"
           }`}

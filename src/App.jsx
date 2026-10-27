@@ -1,14 +1,16 @@
+import React, { Suspense } from "react";
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faProjectDiagram, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
-import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ContactPage from "./pages/ContactPage";
 import { useLanguage } from "./context/LanguageContext";
 import "./App.css";
+
+const AboutPage = React.lazy(() => import("./pages/AboutPage"));
 
 function App() {
   const { t } = useLanguage();
@@ -83,7 +85,14 @@ function App() {
               </>
             }
           />
-          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-gray-400">Memuat halaman About…</div>}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

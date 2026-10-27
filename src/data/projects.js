@@ -85,14 +85,15 @@ export const PROJECTS = {
     },
     {
       title: "Catatan Belanja - Aplikasi Pencatat Pengeluaran dari Struk",
-      period: "Sep 2025",
+      period: "Sep 2025 and Update Oct 2026",
       description:
         "Aplikasi web yang memungkinkan pengguna mengunggah foto struk belanja, lalu sistem membaca teks dengan OCR, mengubahnya menjadi data terstruktur menggunakan Cohere AI, dan menyimpannya ke database. Dilengkapi admin panel Filament untuk pengelolaan data pengeluaran.",
       format: "Web",
       status: "Finished",
       stack: ["Laravel 12", "Filament v3", "Tesseract OCR", "Cohere AI API", "PostgreSQL", "Laravel Queue", "Laravel Filesystem", "PHP"],
       tech: ["OCR", "Automation", "Expense Tracking", "Admin Panel"],
-      images: projectImages("programming/ocr", ["o1.jpg", "o2.jpg", "o3.jpg"]),
+      images: projectImages("programming/ocr", ["o1.png", "o2.png", "o3.png", "o4.png", "o5.png"]),
+      youtube: "https://youtu.be/c-qDqvTE4eQ?si=mfTTOxvxdrZQkrr4",
       github: "https://github.com/Skywalker0715/Laravel-OCR-AI"
     },
     {
@@ -201,8 +202,33 @@ export const PROJECTS = {
     status: "Finished",
     stack: ["Firebase", "Gemini API", "Google AI Studio", "Google Cloud"],
     tech: ["AI Integration", "Hackathon", "UMKM Solutions", "Web App"],
+    github: "https://github.com/Skywalker0715/Ngalir.git",
     images: projectImages("ngalir", ["dashboard.png", "iventory.png", "kasir.png","laporan.png","chat.png"]),
-}
+    },
+    {
+      title: "Fluenta - Aplikasi Pembelajaran Bahasa Inggris AI",
+      period: "Oct 2026",
+      description:
+        "Fluenta adalah aplikasi Streamlit untuk belajar bahasa Inggris melalui percakapan dengan tutor AI. Dibuat untuk pemelajar Indonesia dengan dukungan bahasa Mandarin dan Jepang sebagai bahasa belajar. Aplikasi mendukung chat teks dan suara, koreksi grammar dengan penjelasan dalam Bahasa Indonesia, serta halaman untuk terjemahan dan pemrosesan dokumen. Riwayat sesi disimpan di database SQLite lokal.",
+      format: "Desktop",
+      status: "Finished",
+      stack: ["Streamlit", "Python", "Google Gemini", "Deepgram", "ElevenLabs", "Opus-MT", "SQLite", "python-docx"],
+      tech: ["AI Integration", "Chatbot", "TTS/STT", "Document Processing", "Translation"],
+      images: projectImages("ai/translator", ["chat.png", "dokumen menu.png", "terjemah.png", "ch1.png"])
+    },
+    {
+      title: "StockPilot AI - Local-First Stock Image Workspace",
+      period: "Oct 2026",
+      description:
+        "StockPilot AI adalah workspace lokal untuk kreator stok image dalam mengelola aset, menyiapkan metadata, dan meninjau insight gambar hasil AI. Semua gambar dan metadata disimpan di database SQLite lokal. Analisis Cohere bersifat opsional dan hanya digunakan sebagai draft yang harus ditinjau serta disetujui kreator sebelum disimpan. Dibangun dengan Python FastAPI backend, React TypeScript Vite frontend, dan SQLite.",
+      format: "Desktop",
+      status: "Finished",
+      stack: ["Python", "FastAPI", "React", "TypeScript", "Vite", "SQLite", "Cohere AI"],
+      tech: ["AI Integration", "Computer Vision", "Local-First", "Metadata Management", "FastAPI"],
+      github: "https://github.com/Skywalker0715/stockpilot-ai.git",
+      youtube: "https://youtu.be/DE5OXy-LrHA?si=7tD-TlWn3rhYxjV6",
+      images: projectImages("ai/stockpilot", ["dashboard.png", "generate.png", "library.png", "vision.png"])
+    }
   ],
   data: [
     {

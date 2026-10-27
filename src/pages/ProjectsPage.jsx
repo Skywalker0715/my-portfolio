@@ -220,6 +220,22 @@ const PROJECT_COPY = [
       description:
         "A travel agency landing page themed around Indonesian tourism using Emergent.sh as the AI builder. The concept starts with a PRD in Claude AI and a Figma draft, then becomes a single-page app with smooth-scroll navigation and scenic hero visuals."
     }
+  },
+  {
+    match: /Fluenta - Aplikasi Pembelajaran Bahasa Inggris AI/i,
+    en: {
+      title: "Fluenta - AI English Learning App for Indonesians",
+      description:
+        "Fluenta is a Streamlit app for learning English through conversation with an AI tutor. Built for Indonesian learners with Mandarin and Japanese support as learning languages. The app supports text and voice chat, grammar correction with explanations in Indonesian, plus translation and document processing pages. Chat session history is stored in a local SQLite database."
+    }
+  },
+  {
+    match: /StockPilot AI - Local-First Stock Image Workspace/i,
+    en: {
+      title: "StockPilot AI - Local-First Stock Image Workspace",
+      description:
+        "StockPilot AI is a local-first workspace for stock image creators to organize assets, prepare metadata, and review AI-generated image insights. Images and editable metadata are stored in a local SQLite database. Optional Cohere analysis suggests metadata and visual observations; the creator reviews suggestions before applying them. Manual library work does not require an AI key. Built with Python FastAPI backend and React TypeScript Vite frontend."
+    }
   }
 ];
 
